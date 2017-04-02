@@ -10,7 +10,7 @@
 # One of the main things you need to do when programming a game of tic-tac-toe
 # is showing the players the game board.
 #
-# Write a program that prints the game_board matrix and like:
+# Write a function that prints the game_board matrix that looks like:
 #
 #  0 | 1 | 2
 # --- --- ---
