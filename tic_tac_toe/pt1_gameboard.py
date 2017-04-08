@@ -24,7 +24,7 @@
 def print_board(game_board):
 	return 0
 
-# This is the primary game loop, you will run the tic-tac-toe game using this
+# This is the primary game function, you will run the tic-tac-toe game using this
 def tic_tac_toe():
 
 	# You can think of the "game board" in tic-tac-toe like a list, where each 

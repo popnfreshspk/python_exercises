@@ -26,7 +26,7 @@ def print_board(game_board):
 
 
 
-# This is the primary game loop, you will run the tic-tac-toe game using this
+# This is the primary game function, you will run the tic-tac-toe game using this
 def tic_tac_toe():
 
 	game_board = [
