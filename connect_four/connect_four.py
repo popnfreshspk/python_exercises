@@ -8,9 +8,9 @@ clear = lambda: os.system('clear')
 class Piece(object):
 	def __init__(self, color):
 		if color == 'yellow':
-			self.piece = Back.BLUE + Fore.YELLOW + '●' + Style.RESET_ALL
+			self.piece = Back.BLUE + Fore.YELLOW + Style.BRIGHT + '●' + Style.RESET_ALL
 		else: 
-			self.piece = Back.BLUE + Fore.RED + '●' + Style.RESET_ALL
+			self.piece = Back.BLUE + Fore.RED + Style.BRIGHT + '●' + Style.RESET_ALL
 
 	def __str__(self):
 		return self.piece

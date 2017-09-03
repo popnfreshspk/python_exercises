@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 
 clear = lambda: os.system('clear')
@@ -102,4 +103,5 @@ def tic_tac_toe():
 	if not win:
 		print "It's a tie!"
 
-tic_tac_toe()
+if __name__ == '__main__':
+	tic_tac_toe()
