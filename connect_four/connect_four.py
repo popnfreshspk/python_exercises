@@ -6,6 +6,9 @@ from colorama import Fore, Back, Style
 clear = lambda: os.system('clear')
 
 class Piece(object):
+	"""
+		Piece object, implements color display and equality comparators.
+	"""
 	def __init__(self, color):
 		if color == 'yellow':
 			self.piece = Back.BLUE + Fore.YELLOW + Style.BRIGHT + '●' + Style.RESET_ALL
