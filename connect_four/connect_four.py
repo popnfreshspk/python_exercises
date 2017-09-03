@@ -59,23 +59,59 @@ class ConnectFour(object):
 		while self.turn < 56:
 			clear()
 			print self
-			column = int(raw_input("[%s's Turn] - Enter Column (0-6): " % self.players[self.turn %2]))
-			self.drop_piece(column)
 			
+			successful_placement= 0	
+			while not successful_placement:
+				column = int(raw_input("[%s's Turn] - Enter Column (0-6): " % self.players[self.turn %2]))
+				message, successful_placement = self.drop_piece(column)
+				if message:
+					print '\t' + message
+
 			self.turn += 1
 
 	def drop_piece(self, column):
-		color = self.players[self.turn % 2]
+		"""
+			Inputs: 
+				int column
+			Returns: 
+				tuple (str message, bool successful_placement)
 
+			Description:
+				Takes user column input and places a piece. Returns error message
+				if column is invalid, or column is full.
+		"""
+		successful_placement = 0
+
+		if column > 6:
+			message = '*** Error *** Column out of range.\n'
+			return (message, successful_placement)
+
+		color = self.players[self.turn % 2]
 		board_state = self.Board.get_board()
 		row = 5
 		for i in range(5,-1,-1):
 			piece = board_state[i][column]
 			if not isinstance(piece, Piece):
-				break
-			row -= 1
+				successful_placement = 1
+				self.Board.set_piece(Piece(color), row, column)		
+				return (None, successful_placement)
 
-		self.Board.set_piece(Piece(color), row, column)
+			row -= 1
+	
+		message = '*** Error *** Column full, try another.\n'
+		return (message, successful_placement)
+
+	def check_win(self, row, column):
+		"""
+			Intputs: 
+				int row
+				int	column
+			Output:
+				bool winner
+		"""
+	
+		return 0
+		
 
 		
 if __name__ == '__main__':
