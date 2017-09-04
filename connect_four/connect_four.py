@@ -83,7 +83,7 @@ class ConnectFour(object):
 	def play(self):
 		winner = 0
 		while (self.turn < 42) and (not winner):
-			#clear()
+			clear()
 			print self
 			successful_placement= 0	
 			while not successful_placement:
@@ -98,7 +98,7 @@ class ConnectFour(object):
 
 			self.turn += 1
 
-		#clear()
+		clear()
 		print self
 		if winner:
 			print '\n%s wins!' % winning_player
@@ -149,23 +149,20 @@ class ConnectFour(object):
 				bool winner
 		"""
 		board = int(self.Board.get_bit_board(new_piece),2)
-		print self.Board.get_bit_board('yellow')
-		print self.Board.get_bit_board('red')
-
 
 		y = board & (board >> 6)	
-		if (y & (y >> 2*6)):
+		if (y & (y >> 2*6)):      # \  diagonal
 			return 1
 		
-		y = board & (board >> 7)
+		y = board & (board >> 7)  # -- check horizontal
 		if (y & (y >> 2*7)):
 			return 1
 
-		y = board & (board >> 8)
+		y = board & (board >> 8)  # /  check diagonal
 		if (y & (y >> 2*8)):
 			return 1
 
-		y = board & (board >> 1)
+		y = board & (board >> 1) # |  check vertical
 		if (y & (y >> 2)):
 			return 1
 
