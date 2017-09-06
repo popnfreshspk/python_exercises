@@ -33,9 +33,15 @@ class Piece(object):
 
 		return False
 
-
 class Board(object):
 	def __init__(self):
+		"""
+			self.board - 
+				6x7 array representation of the game board.
+			self.bit_board - 
+				Dictionary storing the bit representations of the yellow/red piece states.
+				Used for efficiently checking win state. 		
+		"""
 		self.board = [
 			['_']*7 for i in range(6)
 
@@ -143,8 +149,7 @@ class ConnectFour(object):
 			Algorithm taken from: http://stackoverflow.com/q/7033165/1524592
 			
 			Intputs: 
-				int row
-				int	column
+				Piece new_piece
 			Output:
 				bool winner
 		"""
